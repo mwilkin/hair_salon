@@ -21,8 +21,15 @@ describe('Stylist') do
       stylist = Stylist.new({:id => 1, :name => 'Griff', :phone_number => '541-101-0002'})
       expect(stylist.phone_number).to eq('541-101-0002')
     end
-
   end
 
+  describe('#save') do
+    it('create/stores stylist objects on the datatbase') do
+      stylist =  Stylist.new({:id => 1, :name => 'Griff', :phone_number => '541-101-0002'})
+      stylist.save()
+      result = DB.exec("SELECT name FROM stylists WHERE name = 'Griff';")
+      expect(result.getvalue(0,0)).to eq('Griff')
+    end
+  end
 
 end
