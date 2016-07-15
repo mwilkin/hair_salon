@@ -27,12 +27,30 @@ describe('Client') do
     end
   end
 
-    describe('#save') do
-      it('create/stores client objects on the datatbase') do
-        client = client = Client.new({:id => 1, :name => 'Skip', :phone_number => '541-111-2222', :stylist_id => 1})
-        client.save()
-        result = DB.exec("SELECT name FROM clients WHERE name = 'Skip';")
-        expect(result.getvalue(0,0)).to eq("Skip")
+  describe('#save') do
+    it('create/stores client objects on the datatbase') do
+      client =  Client.new({:id => 1, :name => 'Skip', :phone_number => '541-111-2222', :stylist_id => 1})
+      client.save()
+      result = DB.exec("SELECT name FROM clients WHERE name = 'Skip';")
+      expect(result.getvalue(0,0)).to eq("Skip")
+    end
+  end
+
+  describe('.find') do
+    it('will return a single client from the database') do
+      client1 = Client.new({:name => 'Skip', :phone_number => '541-111-2222', :stylist_id => 1})
+      client1.save()
+      expect(Client.find(client1.id)).to eq(client1)
+    end
+  end
+
+  describe('#==') do
+      it('will test for equality of two objects') do
+        client1 = Client.new({:id => 1, :name => 'Skip Dance', :phone_number => '541-111-2222', :stylist_id => 1})
+        client1.save()
+        client2 = Client.find(client1.id)
+        client2.save()
+        expect(client1).to eq(client2)
       end
     end
 end

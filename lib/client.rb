@@ -15,4 +15,16 @@ class Client
     @id = result.first.fetch('id').to_i()
   end
 
+  define_singleton_method(:find) do | id |
+    client = nil
+    results = DB.exec("SELECT * FROM clients WHERE id = #{id};")
+    results.each() do | result |
+      client = Client.new({:id => result.fetch('id').to_i, :name => result.fetch('name'), :phone_number => result.fetch('phone_number'), :stylist_id => result.fetch('stylist_id').to_i})
+    end
+    client
+  end
+
+  define_method(:==) do | other |
+    self.name == other.name && self.phone_number == other.phone_number && self.stylist_id == other.stylist_id
+  end
 end
