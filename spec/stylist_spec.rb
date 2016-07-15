@@ -32,4 +32,23 @@ describe('Stylist') do
     end
   end
 
+  describe('.find') do
+    it('will return a single stylist from the database') do
+      stylist = Stylist.new({:name => 'Griff', :phone_number => '541-111-2222'})
+      stylist.save()
+      expect(Stylist.find(stylist.id)).to eq(stylist)
+    end
+  end
+
+  describe('#==') do
+      it('will test for equality of two objects') do
+        stylist1 = Stylist.new({:id => 1, :name => 'Skip Dance', :phone_number => '541-111-2222'})
+        stylist1.save()
+        stylist2 = Stylist.find(stylist1.id)
+        stylist2.save()
+        expect(stylist1).to eq(stylist2)
+      end
+    end
+
+
 end
