@@ -36,4 +36,14 @@ class Client
     end
     clients
   end
+
+  define_singleton_method(:client_list) do | stylist_id |
+    clients = []
+    returned_clients = DB.exec("SELECT * FROM clients WHERE stylist_id = '#{stylist_id}';")
+    returned_clients.each() do | result |
+      clients.push(Client.new({:name => result.fetch('id').to_i, :name => result.fetch('name'), :phone_number => result.fetch('phone_number'), :stylist_id => result.fetch('stylist_id').to_i}))
+    end
+    clients
+  end
+
 end

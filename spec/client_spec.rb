@@ -55,16 +55,27 @@ describe('Client') do
       end
     end
 
-    describe('.all') do
-      it('returns an array of all clients') do
-        client1 = Client.new({:name => 'Skip Dance', :phone_number => '541-111-2222', :stylist_id => 1})
-        client1.save()
-        client2 = Client.new({:name => 'Hip Hop', :phone_number => '541-100-2000', :stylist_id => 1})
-        client2.save()
-        client3 = Client.new({:name => 'Twirl Spin', :phone_number => '541-200-2200', :stylist_id => 1})
-        client3.save()
-        expect(Client.all).to eq([client1, client2, client3])
-      end
+  describe('.all') do
+    it('returns an array of all clients') do
+      client1 = Client.new({:name => 'Skip Dance', :phone_number => '541-111-2222', :stylist_id => 1})
+      client1.save()
+      client2 = Client.new({:name => 'Hip Hop', :phone_number => '541-100-2000', :stylist_id => 1})
+      client2.save()
+      client3 = Client.new({:name => 'Twirl Spin', :phone_number => '541-200-2200', :stylist_id => 1})
+      client3.save()
+      expect(Client.all).to eq([client1, client2, client3])
     end
+  end
+
+  describe('#client_list') do
+    it('should return a list of clients assigned to a stylist') do
+      new_client = Client.new({:name => 'Tom Clancy', :phone_number => '503-799-8756', :stylist_id => 1})
+      new_client.save()
+      new_client2 = Client.new({:name => 'Michael Creighton', :phone_number => '781-599-0101', :stylist_id => 1})
+      new_client2.save()
+      expect(Client.client_list(1)).to eq([new_client, new_client2])
+    end
+  end
+
 
 end
