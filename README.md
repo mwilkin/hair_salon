@@ -8,15 +8,29 @@
 
 ## Description
 
-_A Ruby web application dictionary that shows a list of words which are linked to their definition(s). The user is able to add words to the word list and definitions to any word._
+_A simple web application that allows a salon owner to create a list of clients and a list of stylists. It will provide a way to view, add, update and delete records from both lists. Finally, it allows the a particular client to be associated with a particular stylist._
 
 ## Setup/Installation Requirements:
 
 * _Follow Heroku link below to access the application._
 
+
+
 ## Deployed to Heroku at:
 
-https://vast-chamber-85819.herokuapp.com/
+https://
+
+
+## Database Setup Instructions:
+
+* _In PSQL:_
+
+* CREATE DATABASE hair_salon;
+* CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, phone_number varchar)
+* CREATE TABLE clients (id serial PRIMARY KEY, name varchar, phone_number varchar, stylist_id int)
+* CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
+
+
 
 ## Known Bugs
 
@@ -34,6 +48,10 @@ _If you any issues or have questions, ideas or concerns.  Please contact me at <
 * _HTML_
 * _Sinatra_
 * _Capybara_
+* _Postgres_
+* _SQL_
+
+
 
 ### License
 
