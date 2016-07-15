@@ -50,5 +50,16 @@ describe('Stylist') do
       end
     end
 
-
+  describe('.all') do
+    it('returns an array of all stylists') do
+      stylist1 = Stylist.new({:name => 'Skip Dance', :phone_number => '541-111-2222'})
+      stylist1.save()
+      stylist2 = Stylist.new({:name => 'Hip Hop', :phone_number => '541-100-2000'})
+      stylist2.save()
+      stylist3 = Stylist.new({:name => 'Twirl Spin', :phone_number => '541-200-2200'})
+      stylist3.save()
+      expect(Stylist.all).to eq([stylist1, stylist2, stylist3])
+    end
+  end
+  
 end

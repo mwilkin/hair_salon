@@ -24,4 +24,13 @@ class Stylist
   define_method(:==) do | other |
     self.name == other.name && self.phone_number == other.phone_number
   end
+
+  define_singleton_method(:all) do
+    stylists = []
+    returned_stylists = DB.exec("SELECT * FROM stylists;")
+    returned_stylists.each() do | result |
+      stylists.push(Stylist.new({:id => result.fetch('id').to_i, :name => result.fetch('name'), :phone_number => result.fetch('phone_number')}))
+    end
+    stylists
+  end
 end
