@@ -27,4 +27,13 @@ class Client
   define_method(:==) do | other |
     self.name == other.name && self.phone_number == other.phone_number && self.stylist_id == other.stylist_id
   end
+
+  define_singleton_method(:all) do
+    clients = []
+    returned_clients = DB.exec("SELECT * FROM clients;")
+    returned_clients.each() do | client |
+      clients.push(Client.new({:id => client.fetch('id').to_i, :name => client.fetch('name'), :phone_number => client.fetch('phone_number'), :stylist_id => client.fetch('stylist_id').to_i}))
+    end
+    clients
+  end
 end
