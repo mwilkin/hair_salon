@@ -7,5 +7,11 @@ describe('Stylist') do
       expect(sylist.class).to eq(Stylist)
     end
 
+    it('instantiates a stylist with a name') do
+      stylist = Stylist.new({:name => 'Griff'})
+      expect(stylist.name).to eq('Griff')
+    end
   end
+
+
 end
