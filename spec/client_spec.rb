@@ -27,4 +27,12 @@ describe('Client') do
     end
   end
 
+    describe('#save') do
+      it('create/stores client objects on the datatbase') do
+        client = client = Client.new({:id => 1, :name => 'Skip', :phone_number => '541-111-2222', :stylist_id => 1})
+        client.save()
+        result = DB.exec("SELECT name FROM clients WHERE name = 'Skip';")
+        expect(result.getvalue(0,0)).to eq("Skip")
+      end
+    end
 end
