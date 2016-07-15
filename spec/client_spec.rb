@@ -12,6 +12,10 @@ describe('Client') do
       expect(client.name).to eq('Skip')
     end
 
+    it('instantiates a client with a name and an id') do
+      client = Client.new({:id => 1, :name => 'Skip',})
+      expect(client.id).to eq(1)
+    end
   end
 
 
