@@ -31,8 +31,8 @@ class Client
   define_singleton_method(:all) do
     clients = []
     returned_clients = DB.exec("SELECT * FROM clients;")
-    returned_clients.each() do | client |
-      clients.push(Client.new({:id => client.fetch('id').to_i, :name => client.fetch('name'), :phone_number => client.fetch('phone_number'), :stylist_id => client.fetch('stylist_id').to_i}))
+    returned_clients.each() do | result |
+      clients.push(Client.new({:id => result.fetch('id').to_i, :name => result.fetch('name'), :phone_number => result.fetch('phone_number'), :stylist_id => result.fetch('stylist_id').to_i}))
     end
     clients
   end
