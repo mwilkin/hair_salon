@@ -13,10 +13,14 @@ describe('Stylist') do
     end
 
     it('instantiates a Stylist with an id') do
-      Stylist = Stylist.new({:id => 1, :name => 'Griff',})
-      expect(Stylist.id).to eq(1)
+      stylist = Stylist.new({:id => 1, :name => 'Griff',})
+      expect(stylist.id).to eq(1)
     end
 
+    it('instantiates a stylist with a phone_number') do
+      stylist = Stylist.new({:id => 1, :name => 'Griff', :phone_number => '541-101-0002'})
+      expect(stylist.phone_number).to eq('541-101-0002')
+    end
 
   end
 

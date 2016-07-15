@@ -21,6 +21,7 @@ describe('Client') do
       client = Client.new({:id => 1, :name => 'Skip', :phone_number => '541-111-2222'})
       expect(client.phone_number).to eq('541-111-2222')
     end
+
     it('instantiates a client with a stylist_id') do
       client = Client.new({:id => 1, :name => 'Skip', :phone_number => '541-111-2222', :stylist_id => 1})
       expect(client.stylist_id).to eq(1)
