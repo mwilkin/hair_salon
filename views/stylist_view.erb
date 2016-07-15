@@ -1,0 +1,21 @@
+<h2>Stylist</h2>
+<hr>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3><%= @stylist.name %></h3>
+    <hr>
+    <h3><%= @stylist.id %></h3>
+    <hr>
+    <h3><%= @stylist.phone_number %></h3>
+    <hr>
+    <h3><a href="/stylist/update<% @stylist.id%>">Update Stylist</a></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <form class="form-control" action="/stylist/delete<%= stylist.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" name="submit">Delete Stylist</button>
+    </form>
+  </div>
+</div>

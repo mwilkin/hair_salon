@@ -12,14 +12,8 @@ _A simple web application that allows a salon owner to create a list of clients 
 
 ## Setup/Installation Requirements:
 
-* _Follow Heroku link below to access the application._
-
-
-
-## Deployed to Heroku at:
-
-https://
-
+* _Follow Database Setup Instructions below_
+* _ _
 
 ## Database Setup Instructions:
 
