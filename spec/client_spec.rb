@@ -77,5 +77,12 @@ describe('Client') do
     end
   end
 
-
+  describe('#add_stylist') do
+    it('should assign a parameter value to @stylist_id') do
+      new_client = Client.new({:name => 'Luca Brazzi', :phone_number => '781-322-3456', :stylist_id => 0})
+      new_client.save()
+      new_client.add_stylist(1)
+      expect(new_client.stylist_id).to eq(1)
+    end
+  end
 end

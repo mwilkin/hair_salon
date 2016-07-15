@@ -46,4 +46,9 @@ class Client
     clients
   end
 
+  define_method(:add_stylist) do | stylist_id |
+      DB.exec("DELETE FROM clients WHERE id = #{@id}").first()
+      @stylist_id = stylist_id
+    end
+
 end
