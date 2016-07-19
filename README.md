@@ -20,8 +20,9 @@ _A simple web application that allows a salon owner to create a list of clients 
 * _In PSQL:_
 
 * CREATE DATABASE hair_salon;
-* CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, phone_number varchar)
-* CREATE TABLE clients (id serial PRIMARY KEY, name varchar, phone_number varchar, stylist_id int)
+* \c hair_salon;
+* CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR, phone_number VARCHAR);
+* CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR, phone_number VARCHAR, stylist_id INT);
 * CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 
 

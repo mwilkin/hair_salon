@@ -14,6 +14,6 @@ describe('path to view clients', {:type => :feature}) do
   it('displays list of clients') do
     visit('/')
     click_link('Clients')
-    expect(page).to have_content('Client List')
+    expect(page).to have_content('Add a New Client')
   end
 end
