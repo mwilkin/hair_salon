@@ -61,5 +61,14 @@ describe('Stylist') do
       expect(Stylist.all).to eq([stylist1, stylist2, stylist3])
     end
   end
-  
+
+  describe('#update') do
+  it("lets you update stylists information in the database") do
+    test_stylist = Stylist.new({:name => 'Hip Hop', :phone_number => '541-100-2000'})
+    test_stylist.save()
+    test_stylist.update({:name => "Cindy Lopper", :phone_number => '503-799-8756'})
+    expect(test_stylist.name()).to eq("Cindy Lopper")
+  end
+end
+
 end
