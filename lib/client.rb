@@ -63,4 +63,5 @@ class Client
     DB.exec("UPDATE clients SET name = '#{@name}', phone_number = '#{@phone_number}', stylist_id = #{@stylist_id} WHERE id = #{@id}")
   end
 
+
 end

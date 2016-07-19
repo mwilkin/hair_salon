@@ -9,7 +9,8 @@ require('pry')
 DB = PG.connect({:dbname => 'hair_salon_test'})
 
 get ('/') do
-  @page_title = "Chop Shop Salon"
+  @clients = Client.all()
+  @stylists = Stylist.all()
   erb(:index)
 end
 
