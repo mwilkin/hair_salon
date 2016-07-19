@@ -9,6 +9,7 @@ require('pry')
 DB = PG.connect({:dbname => 'hair_salon_test'})
 
 get ('/') do
+  @page_title = "Chop Shop Salon"
   erb(:index)
 end
 
@@ -19,11 +20,16 @@ get ('/clients') do
 end
 
 get ('/client/add') do
-
-
   erb(:client_new)
 end
 
+get('/client/view') do
+  erb(:client_view)
+end
+
+get('/client/update') do
+  erb(:client_update)
+end
 
 post ('clients') do
   name = params.fetch('name')
@@ -60,4 +66,22 @@ delete("/clients/:id") do
   @clients = Client.all()
   @stylists = Stylist.all()
   erb(:clients)
+end
+
+get ('/stylists') do
+  @clients = Client.all()
+  @stylists = Stylist.all()
+  erb(:stylists)
+end
+
+get ('/stylist/add') do
+  erb(:stylist_new)
+end
+
+get('/stylist/view') do
+  erb(:stylist_view)
+end
+
+get('/stylist/update') do
+  erb(:stylist_update)
 end

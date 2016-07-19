@@ -41,7 +41,7 @@ class Client
     clients = []
     returned_clients = DB.exec("SELECT * FROM clients WHERE stylist_id = '#{stylist_id}';")
     returned_clients.each() do | result |
-      clients.push(Client.new({:name => result.fetch('id').to_i, :name => result.fetch('name'), :phone_number => result.fetch('phone_number'), :stylist_id => result.fetch('stylist_id').to_i}))
+      clients.push(Client.new({:id => result.fetch('id').to_i, :name => result.fetch('name'), :phone_number => result.fetch('phone_number'), :stylist_id => result.fetch('stylist_id').to_i}))
     end
     clients
   end
@@ -51,4 +51,7 @@ class Client
       @stylist_id = stylist_id
     end
 
+  define_method(:delete) do
+    DB.exec("DELETE FROM clients WHERE id = #{@id};")
+  end
 end

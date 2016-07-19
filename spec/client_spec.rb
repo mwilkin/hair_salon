@@ -85,4 +85,15 @@ describe('Client') do
       expect(new_client.stylist_id).to eq(1)
     end
   end
+
+  describe('#delete') do
+    it('will allow a client to be deleted from the DB') do
+      new_client = Client.new({:name => 'Tom Clancy', :phone_number => '503-799-8756', :stylist_id => 1})
+      new_client.save()
+      new_client2 = Client.new({:name => 'Michael Creighton', :phone_number => '781-599-0101', :stylist_id => 1})
+      new_client2.save()
+      new_client.delete()
+      expect(Client.all()).to eq([new_client2])
+    end
+  end
 end
