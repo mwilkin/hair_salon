@@ -71,4 +71,16 @@ describe('Stylist') do
   end
 end
 
+  describe('#delete') do
+    it('lets you delete a stylist from the database') do
+      stylist1 = Stylist.new({:name => 'Skip Dance', :phone_number => '541-111-2222'})
+      stylist1.save()
+      stylist2 = Stylist.new({:name => 'Hip Hop', :phone_number => '541-100-2000'})
+      stylist2.save()
+      stylist3 = Stylist.new({:name => 'Twirl Spin', :phone_number => '541-200-2200'})
+      stylist3.save()
+      stylist2.delete()
+      expect(Stylist.all()).to eq([stylist1, stylist3])
+    end
+  end
 end
