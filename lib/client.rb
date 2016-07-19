@@ -54,4 +54,13 @@ class Client
   define_method(:delete) do
     DB.exec("DELETE FROM clients WHERE id = #{@id};")
   end
+
+  define_method(:update) do | attributes |
+    @id = self.id()
+    @name = attributes.fetch(:name)
+    @phone_number = attributes.fetch(:phone_number)
+    @stylist_id = attributes.fetch(:stylist_id)
+    DB.exec("UPDATE clients SET name = '#{@name}', phone_number = '#{@phone_number}', stylist_id = #{@stylist_id} WHERE id = #{@id}")
+  end
+
 end
