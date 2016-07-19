@@ -1,0 +1,47 @@
+<hr>
+<hr>
+<hr>
+<h2>Client: <%= @client.name() %></h2>
+<hr>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3><%= @client.name %></h3>
+    <hr>
+    <h3><%= @client.id %></h3>
+    <hr>
+    <h3><%= @client.phone_number %></h3>
+    <hr>
+    <h3>Update Client: <%= @client.name() %></h3>
+    <form class="form-control" action="/clients/<%=@client.id() %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label for="new_client_name">New Name</label>
+      <input id="new_client_name" name="new_client_name" type="text" placeholder="<%= @client.name() %>">
+      <label for="new_client_phone_number">New Phone Number</label>
+      <input id="new_client_phone_number" name="new_client_phone_number" type="text" placeholder="<%= @client.phone_number() %>">
+      <hr>
+      <h3>Select a Stylist<</h3>
+      <label for="new_stylist_id">Select a Stylist</label>
+      <select id='new_stylist_id' name='new_stylist_id' type='text'>
+        <% @stylists.each() do |stylist| %>
+          <option value="<%= stylist.id()%>"> <%= stylist.name() %></option>
+        <% end %>
+      </select>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3>Delete Client: <%= @client.name() %></h3>
+    <form class="form-control" action="/clients/<%= client.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" name="submit">Delete Client</button>
+    </form>
+  </div>
+</div>
+<hr>
+<a href="/clients">View Clients</a>
+<hr>
+<a href="/stylists">View Stylists</a>
+<hr>
+<a href="/">Home</a>

@@ -2,7 +2,7 @@
 
 ### _Ruby: Independent Project Week 3_
 
-##### _Version as of 7/15/2016_
+##### _Version as of 7/19/2016_
 
 #### By _**Matt Wilkin**_
 
@@ -20,7 +20,7 @@ _A simple web application that allows a salon owner to create a list of clients 
 * _In PSQL:_
 
 * CREATE DATABASE hair_salon;
-* \c hair_salon;
+* Guest=#\c hair_salon;
 * CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR, phone_number VARCHAR);
 * CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR, phone_number VARCHAR, stylist_id INT);
 * CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
