@@ -17,3 +17,11 @@ describe('path to view client list', {:type => :feature}) do
     expect(page).to have_content('Client List')
   end
 end
+
+describe('path to view stylist list', {:type => :feature}) do
+  it('displays list of stylists') do
+    visit('/')
+    click_link('Stylists')
+    expect(page).to have_content('Stylist List')
+  end
+end
