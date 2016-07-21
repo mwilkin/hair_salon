@@ -1,6 +1,6 @@
  require('capybara/rspec')
  require('./app')
- 
+
  Capybara.app = Sinatra::Application
  set(:show_exceptions, false)
 
@@ -19,14 +19,17 @@ describe('path to view client list', {:type => :feature}) do
   end
 end
 
-# describe('path to add a client', {:type => :feature}) do
-#   it('allows user to add a new client') do
-#     visit('/clients')
-#     fill_in('name', :with => 'Tom Jones')
-#     fill_in('Client Phone Number: ', :with => '541-123-3214')
-#     select('Santa Claus', :from => 'stylist_id')
-#     click_button('Add Client')
-#     expect(page).to have_content('Tom Jones')
-#
-#   end
-# end
+describe('add a client', {:type => :feature}) do
+  it('allows user to add a new client') do
+    stylist = Stylist.new({:id => nil, :name => "Le Chopper", :phone_number => "101-101-1001"})
+    stylist.save()
+    visit('/')
+    click_link('Clients')
+    fill_in('name', :with => 'Tom Jones')
+    fill_in('phone_number', :with => '541-123-3214')
+    select('Le Chopper', :from => 'stylist_id')
+    click_button('Add Client')
+    expect(page).to have_content('Tom Jones')
+
+  end
+end
