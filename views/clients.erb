@@ -19,10 +19,11 @@
     <% end %>
   </div>
 </div>
+<hr>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h3>Add a New Client</h3>
-    <form action="/clients" method="post">
+    <form class="form-group" action="/clients" method="post">
       <label for="name">Client Name: </label>
       <input id="name" name="name" type="text" placeholder="Snippy Snip"><br>
       <label for="phone_number">Client Phone Number: </label>
@@ -35,12 +36,11 @@
         </select><br>
       <button type="submit">Add Client</button>
     </form>
+    <% else %>
+    <h3>Please add stylist before adding a client.</h3>
+    <% end %>
+    <hr>
+    <h4><a href="/stylists">Stylists</a><br></h4>
+    <h4><a href="/">Home</a></h4>
   </div>
 </div>
-
-<% else %>
-  <h3>Please add stylist before adding a client.</h3>
-<% end %>
-<hr>
-<h3><a href="/stylists">View Stylists</a></h3>
-<h3><a href="/">Home</a></h3>
