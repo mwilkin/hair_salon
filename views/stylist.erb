@@ -17,11 +17,11 @@
         <input type="hidden" name="_method" class="form-control" value="patch">
         <div class="form-group">
           <label for="new_name">New Name</label>
-          <input type="text" name="new_name" id="new_name">
+          <input type="text" name="new_name" id="new_name" value="<%= @stylist.name() %>">
         </div>
         <div class="form-group">
           <label for="new_phone_number">New Phone Number</label>
-          <input id="new_phone_number" value="<%= @stylist.phone_number%>" type="tel" name="new_phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Ten digits code"class="form-control">
+          <input id="new_phone_number" value="<%= @stylist.phone_number%>" type="tel" name="new_phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Ten digits code" class="form-control">
         </div>
         <button type="Submit" name="button" class="btn-primary">Update Stylist</button>
       </form>
