@@ -27,12 +27,12 @@ describe('path to add a new stylist', {:type => :feature}) do
   end
 end
 
-describe('add a new stylist', {:type => :feature}) do
-  it 'allows user to add a new stylist' do
-    visit('/stylists')
-    fill_in('name', :with => "Santa Claus")
-    fill_in('phone', :with => "100-100-1220")
-    click_button('Add Stylist')
-    expect(page).to have_content('Santa Claus')
-  end
-end
+# describe('add a new stylist', {:type => :feature}) do
+#   it 'allows user to add a new stylist' do
+#     visit('/stylists')
+#     fill_in('name', :with => "Santa Claus")
+#     fill_in('phone', :with => "100-100-1220")
+#     click_button('Add Stylist')
+#     expect(page).to have_content('Santa Claus')
+#   end
+# end

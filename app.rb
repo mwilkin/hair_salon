@@ -63,7 +63,6 @@ delete('/stylists/:id') do
   erb(:stylists)
 end
 
-
 get('/clients') do
   @clients = Client.all()
   @stylists = Stylist.all()
@@ -84,15 +83,15 @@ end
 get('/clients/:id') do
   @clients = Client.all()
   @client = Client.find(params.fetch('id').to_i())
-  @stylist = Stylist.find(@client.stylist_id())  #change to _id ??
-  @stylist = Stylist.all()
+  @stylist = Stylist.find(@client.stylist_id())
+  @stylists = Stylist.all()
   erb(:client)
 end
 
 patch('/clients/:id') do
   @client = Client.find(params.fetch('id').to_i())
   name = params.fetch('new_client_name')
-  phone_number = params.fetch('new_phone_number')
+  phone_number = params.fetch('new_client_phone_number')
   stylist_id = params.fetch('new_stylist_id')
   @stylist = Stylist.find((stylist_id).to_i())
   @client.update({:name => name, :phone_number => phone_number, :stylist_id => stylist_id})
