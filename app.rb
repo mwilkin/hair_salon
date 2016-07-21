@@ -8,16 +8,17 @@ require('pry')
 
 DB = PG.connect({:dbname => 'hair_salon_test'})
 
-get ('/') do
+get('/') do
+  @stylists = Stylist.all()
   erb(:index)
 end
 
-get ('/stylists') do
+get('/stylists') do
   @stylists = Stylist.all()
   erb(:stylists)
 end
 
-post ('/stylists') do
+post('/stylists') do
   name = params.fetch('name')
   phone_number = params.fetch('phone_number')
   stylist = Stylist.new({:id => nil, :name => name, :phone_number => phone_number})
@@ -26,14 +27,14 @@ post ('/stylists') do
   erb(:stylists)
 end
 
-get ('/stylists/:id') do
+get('/stylists/:id') do
   @stylists = Stylist.all()
   @stylist = Stylist.find(params.fetch("id").to_i())
-  @clients = Clients.all()
+  @clients = Client.all()
   erb(:stylist)
 end
 
-post ('/stylists/:id') do
+post('/stylists/:id') do
   name = params.fetch('stylist_client name') #client_list
   stylist_id = params.fetch('stylist_id')
   client = Client.new({:id => nil, :name => name, :phone_number => phone_number, :stylist_id => stylist_id})
@@ -44,7 +45,7 @@ post ('/stylists/:id') do
   erb(:stylist)
 end
 
-patch ('/stylists/:id') do
+patch('/stylists/:id') do
   name = params.fetch('new_name')
   @stylist = Stylist.find(params.fetch('id').to_i())
   @stylist.update({:name => name, :phone_number => phone_number})
@@ -53,7 +54,7 @@ patch ('/stylists/:id') do
   erb(:stylist)
 end
 
-delete ('/stylists/:id') do
+delete('/stylists/:id') do
   @stylist = Stylist.find(params.fetch('id').to_i())
   @stylist.delete()
   @stylists = Stylist.all()
@@ -62,13 +63,13 @@ delete ('/stylists/:id') do
 end
 
 
-get ('/clients') do
+get('/clients') do
   @clients = Client.all()
   @stylists = Stylist.all()
   erb(:clients)
 end
 
-post ('/clients') do
+post('/clients') do
   name = params.fetch('name')
   phone_number = params.fetch('phone_number')
   stylist_id = params.fetch('stylist_id')
@@ -82,7 +83,7 @@ end
 get('/clients/:id') do
   @clients = Client.all()
   @client = Client.find(params.fetch('id').to_i())
-  @stylist = Stylist.find(@client.stylist.id())
+  @stylist = Stylist.find(@client.stylist_id())  #change to _id ??
   @stylist = Stylist.all()
   erb(:client)
 end

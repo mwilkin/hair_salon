@@ -15,6 +15,7 @@
       </ul>
     <% else %>
     <h3>There are no clients currently.</h3>
+    <h4>Please add a client name and phone number and then assign a stylist.</h4>
     <% end %>
   </div>
 </div>
@@ -22,18 +23,16 @@
   <div class="col-md-6 col-md-offset-3">
     <h3>Add a New Client</h3>
     <form action="/clients" method="post">
-      <label for="name">Client Name
-        <input id="name" name="name" type="text">
-      </label>
-      <label for="phone_number">Client Phone Number
-        <input id="phone_number" name="phone_number" type="text">
-      </label>
-      <label for="stylist_id">Select a Stylist</label>
+      <label for="name">Client Name: </label>
+      <input id="name" name="name" type="text" placeholder="Snippy Snip"><br>
+      <label for="phone_number">Client Phone Number: </label>
+      <input id="phone" type="tel" name="phone_number" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Ten digits code" placeholder="000-000-0000" required><br>
+      <label for="stylist_id">Select a Stylist: </label>
         <select id='stylist_id' name='stylist_id' type='text'>
           <% @stylists.each() do |stylist| %>
             <option value="<%= stylist.id()%>"> <%= stylist.name() %></option>
           <% end %>
-        </select>
+        </select><br>
       <button type="submit">Add Client</button>
     </form>
   </div>
@@ -42,5 +41,6 @@
 <% else %>
   <h3>Please add stylist before adding a client.</h3>
 <% end %>
+<hr>
 <h3><a href="/stylists">View Stylists</a></h3>
 <h3><a href="/">Home</a></h3>

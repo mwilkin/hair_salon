@@ -2,7 +2,7 @@
 
 ### _Ruby: Independent Project Week 3_
 
-##### _Version as of 7/19/2016_
+##### _Version as of 7/20/2016_
 
 #### By _**Matt Wilkin**_
 
@@ -13,7 +13,7 @@ _A simple web application that allows a salon owner to create a list of clients 
 ## Setup/Installation Requirements:
 
 * _Follow Database Setup Instructions below_
-* _ _
+*
 
 ## Database Setup Instructions:
 

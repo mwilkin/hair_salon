@@ -8,7 +8,7 @@
     <% if @stylists.any? %>
     <ul>
       <% @stylists.each() do | stylist | %>
-      <li><a href="/stylists/<%= stylist.id()%>"><%=stylist.name()%></a></li>
+      <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></li>
       <% end %>
     </ul>
     <% else %>
@@ -23,16 +23,14 @@
       <form class="" action="/stylists" method="post">
         <h3>Add a Stylist:</h3>
         <div class="form-group">
-          <label for="name">Stylist Name
+          <label for="name">Stylist Name</label>
             <input id="name" type="text" name="name" class="form-control" required>
-          </label>
         </div>
         <div class="form-group">
-          <label for="phone_number">Phone number
-            <input id="phone" type="phone" name="phone_number" class="form-control" required>
-          </label>
+          <label for="phone_number">Phone number</label>
+            <input id="phone" type="tel" name="phone_number" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Ten digits code"class="form-control" placeholder="000-000-0000" required>
         </div>
-        <button type="Submit" name="button" class="btn-primary">Add Stylist</button>
+        <button type="Submit" class="btn-primary">Add Stylist</button>
         <hr>
       </form>
       <% if @stylists.any?() %>
