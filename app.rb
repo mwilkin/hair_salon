@@ -47,6 +47,7 @@ end
 
 patch('/stylists/:id') do
   name = params.fetch('new_name')
+  phone_number = params.fetch('new_phone_number')
   @stylist = Stylist.find(params.fetch('id').to_i())
   @stylist.update({:name => name, :phone_number => phone_number})
   @stylists = Stylist.all()

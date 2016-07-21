@@ -6,22 +6,22 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h3>Name: <%= @stylist.name %></h3>
-    <hr>
     <h3>Phone number: <%= @stylist.phone_number %></h3>
   </div>
 </div>
+<hr>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="form-group">
       <form action="/stylists/<%= @stylist.id() %>" method="post">
-        <input id="name" type="hidden" name="_method" class="form-control" value="patch">
+        <input type="hidden" name="_method" class="form-control" value="patch">
         <div class="form-group">
           <label for="new_name">New Name</label>
           <input type="text" name="new_name" id="new_name">
         </div>
         <div class="form-group">
-          <label for="phone_number">Phone number</label>
-          <input id="phone" type="tel" name="phone_number" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Ten digits code"class="form-control" placeholder="000 000 0000" required>
+          <label for="new_phone_number">New Phone Number</label>
+          <input id="new_phone_number" value="<%= @stylist.phone_number%>" type="tel" name="new_phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Ten digits code"class="form-control">
         </div>
         <button type="Submit" name="button" class="btn-primary">Update Stylist</button>
       </form>
