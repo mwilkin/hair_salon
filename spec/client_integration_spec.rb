@@ -11,14 +11,6 @@ describe('root path', {:type => :feature}) do
   end
 end
 
-describe('path to view client list', {:type => :feature}) do
-  it('displays list of clients') do
-    visit('/')
-    click_link('Clients')
-    expect(page).to have_content('Please add stylist before adding a client.')
-  end
-end
-
 # describe('add a client', {:type => :feature}) do
 #   it('allows user to add a new client') do
 #     stylist = Stylist.new({:id => nil, :name => "Le Chopper", :phone_number => "101-101-1001"})

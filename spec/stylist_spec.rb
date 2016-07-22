@@ -83,4 +83,16 @@ end
       expect(Stylist.all()).to eq([stylist1, stylist3])
     end
   end
+
+  describe('#client_list') do
+    it('should return a list of clients assigned to a stylist') do
+      stylist = Stylist.new({:name => 'Twirl Spin', :phone_number => '541-200-2200'})
+      stylist.save()
+      client1 = Client.new({:id => nil, :name => 'Tom Clancy', :phone_number => '503-799-8756', :stylist_id => 1})
+      client1.save()
+      client2 = Client.new({:id => nil, :name => 'Michael Creighton', :phone_number => '781-599-0101', :stylist_id => 1})
+      client2.save()
+      expect(stylist.client_list()).to eq([client1, client2])
+    end
+  end
 end

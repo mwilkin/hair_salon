@@ -67,16 +67,6 @@ describe('Client') do
     end
   end
 
-  describe('#client_list') do
-    it('should return a list of clients assigned to a stylist') do
-      new_client = Client.new({:name => 'Tom Clancy', :phone_number => '503-799-8756', :stylist_id => 1})
-      new_client.save()
-      new_client2 = Client.new({:name => 'Michael Creighton', :phone_number => '781-599-0101', :stylist_id => 1})
-      new_client2.save()
-      expect(Client.client_list(1)).to eq([new_client, new_client2])
-    end
-  end
-
   describe('#add_stylist') do
     it('should assign a parameter value to @stylist_id') do
       new_client = Client.new({:name => 'Luca Brazzi', :phone_number => '781-322-3456', :stylist_id => 0})

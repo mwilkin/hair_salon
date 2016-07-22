@@ -31,6 +31,13 @@ describe('add a new stylist', {:type => :feature}) do
   end
 end
 
+describe('path to view client list', {:type => :feature}) do
+  it('displays list of clients') do
+    visit('/')
+    click_link('Clients')
+    expect(page).to have_content('Please add stylist before adding a client.')
+  end
+end
 # describe('delete a stylist', {:type => :feature}) do
 #   it('allows the user to delete a stylist') do
 #     stylist = Stylist.new({:id => nil, :name => "Guy", :phone_number => "511-541-1515"})
